@@ -1,3 +1,15 @@
+if SERVER then return end
+
+if GetConVar("gmod_language"):GetString() == "ru" then
+	language.Add("CFS_Banner_MainTextDescription", "Привет, похоже Вы установили контент проекта CrossFire: Source\n\nCrossFire: Source - это некоммерческий проект, базирующийся на адаптации сеттинга CrossFire в игру Garry`s Mod.\nМы хотим создать уникальную тактическую игровую среду, в которой все смогут приятно провести свое время, и сразиться за победу!\nЕсли хотите с нами поиграть, присоединяйтесь, так Вы сможете поддержать нашу огромную работу.\n\nУзнать подробнее о нашем проекте, Вы можете по кликабельным ссылкам ниже.")
+	language.Add("CFS_Banner_CloseMenu", "Закрыть")
+	language.Add("CFS_Banner_IPDescription", "IP нашего публичного сервера (консольная команда для входа, можно скопировать)")
+else
+	language.Add("CFS_Banner_MainTextDescription", "Hi, it looks like you have installed the content of the CrossFire: Source project\n\nCrossFire: Source is a non-commertial project based on adapting the CrossFire game to Garry`s Mod.\nWe want to create a unique tactical gaming environment in which everyone can enjoy their time , and fight for victory!\nIf you want to play with us, join us, so you can support our great work.\n\nFor more details about our project, you can click on the links below.")
+	language.Add("CFS_Banner_CloseMenu", "Close")
+	language.Add("CFS_Banner_IPDescription", "IP of our public server (console command for join, you can copy it)")
+end
+
 
 local Images = {
 	["STEAM"] = {
@@ -105,7 +117,7 @@ local function ShowBanner()
 	vFrame.BGT.TextPanel:SetSize(855,110)
 	vFrame.BGT.TextPanel:AlignTop(5)
 	vFrame.BGT.TextPanel:AlignLeft(15)
-	vFrame.BGT.TextPanel:SetText( "Привет, похоже Вы установили контент проекта CrossFire: Source\n\nCrossFire: Source - это некоммерческий проект, базирующийся на адаптации сеттинга CrossFire в игру Garry`s Mod.\nМы хотим создать уникальную тактическую игровую среду, в которой все смогут приятно провести свое время, и сразиться за победу!\nЕсли хотите с нами поиграть, присоединяйтесь, так Вы сможете поддержать нашу огромную работу.\n\nУзнать подробнее о нашем проекте, Вы можете по кликабельным ссылкам ниже." )
+	vFrame.BGT.TextPanel:SetText( "#CFS_Banner_MainTextDescription" )
 	vFrame.BGT.TextPanel:SetTextColor(Color(255,255,255,255))
 			
 
@@ -195,7 +207,7 @@ local function ShowBanner()
 	vFrame.ServerIP:AlignBottom(60)
 	vFrame.ServerIP.Paint = function() end
 	vFrame.ServerIP.Text = vgui.Create("DLabel", vFrame.ServerIP)
-	vFrame.ServerIP.Text:SetText("IP нашего публичного сервера (консольная команда для входа, можно скопировать)")
+	vFrame.ServerIP.Text:SetText("#CFS_Banner_IPDescription")
 	vFrame.ServerIP.Text:SizeToContents()
 	vFrame.ServerIP.Text:SetTextColor(Color(255,255,255,255))
 	vFrame.ServerIP.Text:AlignBottom(15)
@@ -242,7 +254,7 @@ local function ShowBanner()
 
 	vFrame.DB1 = vgui.Create("DButton", vFrame)
 	vFrame.DB1:SetSize(140,40)
-	vFrame.DB1:SetText("Закрыть")
+	vFrame.DB1:SetText("#CFS_Banner_CloseMenu")
 	vFrame.DB1.DoClick = function()
 		vFrame:Remove()
 	end
@@ -316,7 +328,3 @@ net.Receive("CFS_ShowSupportBannerForContentUsers", function()
 	UI_GetSupportBanner()
 end)
 
-
-concommand.Add("CFS_ETEST", function()
-	UI_GetSupportBanner()
-end)
