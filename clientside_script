@@ -1,11 +1,9 @@
 if SERVER then return end
 
 if GetConVar("gmod_language"):GetString() == "ru" then
-	language.Add("CFS_Banner_MainTextDescription", "Привет, похоже Вы установили контент проекта CrossFire: Source\n\nCrossFire: Source - это некоммерческий проект, базирующийся на адаптации сеттинга CrossFire в игру Garry`s Mod.\nМы хотим создать уникальную тактическую игровую среду, в которой все смогут приятно провести свое время, и сразиться за победу!\nЕсли хотите с нами поиграть, присоединяйтесь, так Вы сможете поддержать нашу огромную работу.\n\nУзнать подробнее о нашем проекте, Вы можете по кликабельным ссылкам ниже.")
-	language.Add("CFS_Banner_CloseMenu", "Закрыть")
-	language.Add("CFS_Banner_IPDescription", "IP нашего публичного сервера (консольная команда для входа, можно скопировать)")
+	language.Add("CFS_Banner_MainTextDescription", "Привет, похоже Вы установили серверный контент проекта «CrossFire: Source»\n\nCrossFire: Source - это некоммерческий проект, базирующийся на адаптации сеттинга CrossFire в игру Garry`s Mod.\nМы хотим создать уникальную тактическую игровую среду, в которой все смогут приятно провести свое время, и сразиться за победу!\nЕсли хотите с нами поиграть, присоединяйтесь, так Вы сможете поддержать нашу огромную работу.\n\nУзнать подробнее о нашем проекте, Вы можете по ссылке ниже.")
 else
-	language.Add("CFS_Banner_MainTextDescription", "Hi, it looks like you have installed the content of the CrossFire: Source project\n\nCrossFire: Source is a non-commertial project based on adapting the CrossFire game to Garry`s Mod.\nWe want to create a unique tactical gaming environment in which everyone can enjoy their time , and fight for victory!\nIf you want to play with us, join us, so you can support our great work.\n\nFor more details about our project, you can click on the links below.")
+	language.Add("CFS_Banner_MainTextDescription", "Hi, it looks like you have installed the server content of the «CrossFire: Source» project\n\nCrossFire: Source is a non-commertial project based on adapting the CrossFire game to Garry`s Mod.\nWe want to create a unique tactical gaming environment in which everyone can enjoy their time , and fight for victory!\nIf you want to play with us, join us, so you can support our great work.\n\nFor more details about our project, you can follow the link below.")
 	language.Add("CFS_Banner_CloseMenu", "Close")
 	language.Add("CFS_Banner_IPDescription", "IP of our public server (console command for join, you can copy it)")
 end
@@ -13,8 +11,8 @@ end
 local nextShow = CurTime()
 
 net.Receive("CFS_ShowSupportBannerForContentUsers", function()
-	LocalPlayer():ChatPrint([[This server uses the content of the «CrossFire: Source» server.
-You can support us if you join to our Steam group.
-https://steamcommunity.com/groups/cf_source]])
+	LocalPlayer():ChatPrint("#CFS_Banner_MainTextDescription")
+	LocalPlayer():ChatPrint("https://steamcommunity.com/groups/cf_source")
+	LocalPlayer():ChatPrint("https://steamcommunity.com/groups/cf_source")
 end)
 
